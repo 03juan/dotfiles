@@ -1,0 +1,20 @@
+[core]
+	excludesfile = /home/juan/.gitignore_global
+	editor = vim --wait
+	filemode = false
+#	autocrlf = true
+[user]
+	email = jbarrios@gmail.com
+	name = Juan P Barrios
+[color]
+	ui = auto
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[alias]
+	st = status --short --branch
+[rerere]
+	enabled = true
+[init]
+	defaultBranch = main
+[diff]
+	submodule = log

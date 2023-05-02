@@ -1,0 +1,9 @@
+.idea
+riderModule.iml
+.vscode
+workspace.code-workspace
+*.iml
+.elixir_ls
+cli.ini
+./files/
+ttb_last_config
