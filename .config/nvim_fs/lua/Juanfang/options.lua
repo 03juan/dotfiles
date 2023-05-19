@@ -45,6 +45,7 @@ vim.cmd [[set formatoptions-=cro]]
 
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
 
 vim.g.clipboard = {
   name = 'WslClipboard',
@@ -62,4 +63,4 @@ vim.g.clipboard = {
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
-vim.wo.foldcolumn = "2"
+vim.wo.foldcolumn = "5"
