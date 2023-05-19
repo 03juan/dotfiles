@@ -1,6 +1,6 @@
 [core]
 	excludesfile = /home/juan/.gitignore_global
-	editor = vim --wait
+# editor = vim --wait
 	filemode = false
 #	autocrlf = true
 [user]

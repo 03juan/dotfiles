@@ -172,7 +172,8 @@ plugin-load $plugins
 # environment variables
 #----------------------------
 export IP=$(hostname -I | awk '{print $1}')
-export EDITOR="nvim"
+export VISUAL="nvim"
+export EDITOR="$VISUAL"
 export PATH="${PATH}:${HOME}/bin"
 export TIME_STYLE="long-iso"
 
