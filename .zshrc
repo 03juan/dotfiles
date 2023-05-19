@@ -133,3 +133,5 @@ fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit && compinit
 
 plugins=(greymd/docker-zsh-completion)
+
+export NVIM_APPNAME=nvim_fs
