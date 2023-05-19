@@ -1,3 +1,7 @@
+#----------------------------
+# ssh-agent
+#----------------------------
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -27,14 +31,11 @@ bindkey -v
 
 setopt share_history
 
-export EDITOR="nvim"
-export PATH="${PATH}:${HOME}/bin"
-
 #-----------------------------
 # Dircolors
 #-----------------------------
-LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
-export LS_COLORS
+# LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
+# export LS_COLORS
 
 #------------------------------
 # Keybindings
@@ -55,7 +56,7 @@ bindkey "^[[F" end-of-line
 # Aliases
 #------------------------------
 alias vim="nvim"
-alias ls='ls --color=auto -h'
+alias ls='exa'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -67,6 +68,7 @@ alias l='ls -CF'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 alias dotfiles='$(which git) --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias dot="dotfiles"
 
 #------------------------------
 # ShellFuncs
@@ -132,6 +134,52 @@ fpath=(${ASDF_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 
-plugins=(greymd/docker-zsh-completion)
+#----------------------------
+# plugins
+#----------------------------
+
+# from https://github.com/mattmc3/zsh_unplugged/blob/main/examples/zshrc.zsh
+ZDOTDIR=$HOME/.zsh
+ZPLUGINDIR=$ZDOTDIR/plugins
+
+##? Clone a plugin, identify its init file, source it, and add it to your fpath.
+function plugin-load {
+  local repo plugdir initfile initfiles=()
+  : ${ZPLUGINDIR:=${ZDOTDIR:-~/.config/zsh}/plugins}
+  for repo in $@; do
+    plugdir=$ZPLUGINDIR/${repo:t}
+    initfile=$plugdir/${repo:t}.plugin.zsh
+    if [[ ! -d $plugdir ]]; then
+      echo "Cloning $repo..."
+      git clone -q --depth 1 --recursive --shallow-submodules \
+        https://github.com/$repo $plugdir
+    fi
+    if [[ ! -e $initfile ]]; then
+      initfiles=($plugdir/*.{plugin.zsh,zsh-theme,zsh,sh}(N))
+      (( $#initfiles )) || { echo >&2 "No init file found '$repo'." && continue }
+      ln -sf $initfiles[1] $initfile
+    fi
+    fpath+=$plugdir
+    (( $+functions[zsh-defer] )) && zsh-defer . $initfile || . $initfile
+  done
+}
+
+
+plugins=(greymd/docker-zsh-completion bobsoppe/zsh-ssh-agent)
+plugin-load $plugins
+
+#----------------------------
+# environment variables
+#----------------------------
+export IP=$(hostname -I | awk '{print $1}')
+export EDITOR="nvim"
+export PATH="${PATH}:${HOME}/bin"
+export TIME_STYLE="long-iso"
+
+# Erlang and Elixir
+export ERL_AFLAGS="-kernel shell_history enabled -kernel shell_history_file_bytes 1024000"
+export KERL_BUILD_DOCS=yes
+export KERL_INSTALL_HTMLDOCS=no
+export KERL_INSTALL_MANPAGES=no
 
 export NVIM_APPNAME=nvim_fs
