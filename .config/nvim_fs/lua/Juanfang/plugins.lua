@@ -80,9 +80,28 @@ return packer.startup(function(use)
     }
   }
 
-  use "nvim-telescope/telescope.nvim"
+  use 'junegunn/fzf'
+  use 'junegunn/fzf.vim'
+
+  use {
+    "03juan/telescope.nvim",
+    branch = "patch-sorting",
+    requires = {
+      "nvim-telescope/telescope-github.nvim"
+    }
+  }
+  -- use {
+  --   "nvim-telescope/telescope.nvim",
+  --   requires = {
+  --     "nvim-telescope/telescope-github.nvim"
+  --   }
+  -- }
+
   use "nvim-telescope/telescope-media-files.nvim"
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+  use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+  }
 
   use {
     "nvim-treesitter/nvim-treesitter",
@@ -104,6 +123,8 @@ return packer.startup(function(use)
 
   use "nvim-tree/nvim-web-devicons"
   use "romgrk/barbar.nvim"
+
+  use "ahmedkhalf/project.nvim"
 
   -- Automoatically set up configuration after cloning packer.nvim
   -- should be the last command after all plugins

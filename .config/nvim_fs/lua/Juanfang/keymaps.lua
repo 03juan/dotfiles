@@ -33,7 +33,9 @@ keymap("n", "<A-h>", ":bprevious<CR>", opts)
 -- Telescope
 keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", opts)
 keymap("n", "<leader>fd", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown())<CR>", opts)
-keymap("n", "<C-t>", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<leader>/", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<leader>?", "<cmd>Telescope buffers<CR>", opts)
+keymap("n", "<leader>p", "<cmd>Telescope projects<CR>", opts)
 
 -- neo-tree
 keymap("n", "<Bslash>", ":Neotree reveal<CR>", opts)

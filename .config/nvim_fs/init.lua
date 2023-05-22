@@ -1,3 +1,5 @@
+-- vim.loader.enable()
+
 require "Juanfang.options"
 require "Juanfang.keymaps"
 require "Juanfang.plugins"
@@ -12,3 +14,4 @@ require "Juanfang.autopairs"
 require "Juanfang.comment"
 require "Juanfang.gitsigns"
 require "Juanfang.barbar"
+require "Juanfang.project"

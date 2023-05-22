@@ -129,6 +129,16 @@ _G.packer_plugins = {
     path = "/home/juan/.local/share/nvim_fs/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  fzf = {
+    loaded = true,
+    path = "/home/juan/.local/share/nvim_fs/site/pack/packer/start/fzf",
+    url = "https://github.com/junegunn/fzf"
+  },
+  ["fzf.vim"] = {
+    loaded = true,
+    path = "/home/juan/.local/share/nvim_fs/site/pack/packer/start/fzf.vim",
+    url = "https://github.com/junegunn/fzf.vim"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/juan/.local/share/nvim_fs/site/pack/packer/start/gitsigns.nvim",
@@ -200,9 +210,8 @@ _G.packer_plugins = {
     url = "https://github.com/p00f/nvim-ts-rainbow"
   },
   ["nvim-web-devicons"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/juan/.local/share/nvim_fs/site/pack/packer/opt/nvim-web-devicons",
+    loaded = true,
+    path = "/home/juan/.local/share/nvim_fs/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
@@ -220,10 +229,20 @@ _G.packer_plugins = {
     path = "/home/juan/.local/share/nvim_fs/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  ["project.nvim"] = {
+    loaded = true,
+    path = "/home/juan/.local/share/nvim_fs/site/pack/packer/start/project.nvim",
+    url = "https://github.com/ahmedkhalf/project.nvim"
+  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/home/juan/.local/share/nvim_fs/site/pack/packer/start/telescope-fzf-native.nvim",
     url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+  },
+  ["telescope-github.nvim"] = {
+    loaded = true,
+    path = "/home/juan/.local/share/nvim_fs/site/pack/packer/start/telescope-github.nvim",
+    url = "https://github.com/nvim-telescope/telescope-github.nvim"
   },
   ["telescope-media-files.nvim"] = {
     loaded = true,
@@ -233,7 +252,7 @@ _G.packer_plugins = {
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/juan/.local/share/nvim_fs/site/pack/packer/start/telescope.nvim",
-    url = "https://github.com/nvim-telescope/telescope.nvim"
+    url = "https://github.com/03juan/telescope.nvim"
   }
 }
 
