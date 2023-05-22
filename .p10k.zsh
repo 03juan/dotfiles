@@ -103,14 +103,14 @@
     todo                    # todo items (https://github.com/todotxt/todo.txt-cli)
     timewarrior             # timewarrior tracking status (https://timewarrior.net/)
     taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
-    # cpu_arch              # CPU architecture
+    cpu_arch              # CPU architecture
     time                    # current time
     # =========================[ Line #2 ]=========================
     newline                 # \n
-    # ip                    # ip address and bandwidth usage for a specified network interface
-    # public_ip             # public IP address
+    ip                    # ip address and bandwidth usage for a specified network interface
+    public_ip             # public IP address
     # proxy                 # system-wide http/https/ftp proxy
-    # battery               # internal battery
+    battery               # internal battery
     # wifi                  # wifi speed
     # example               # example user-defined segment (see prompt_example function below)
   )
@@ -266,7 +266,7 @@
   # This moves the truncation point to the right (positive offset) or to the left (negative offset)
   # relative to the marker. Plain "first" and "last" are equivalent to "first:0" and "last:0"
   # respectively.
-  typeset -g POWERLEVEL9K_DIR_TRUNCATE_BEFORE_MARKER=false
+  typeset -g POWERLEVEL9K_DIR_TRUNCATE_BEFORE_MARKER="last:-1"
   # Don't shorten this many last directory segments. They are anchors.
   typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
   # Shorten directory if it's longer than this even if there is space for it. The value can
@@ -1537,7 +1537,8 @@
   #   P9K_IP_TX_BYTES_DELTA | number of bytes sent since last prompt
   #   P9K_IP_RX_RATE        | receive rate (since last prompt)
   #   P9K_IP_TX_RATE        | send rate (since last prompt)
-  typeset -g POWERLEVEL9K_IP_CONTENT_EXPANSION='${P9K_IP_RX_RATE:+%70F⇣$P9K_IP_RX_RATE }${P9K_IP_TX_RATE:+%215F⇡$P9K_IP_TX_RATE }%38F$P9K_IP_IP'
+  #typeset -g POWERLEVEL9K_IP_CONTENT_EXPANSION='${P9K_IP_RX_RATE:+%70F⇣$P9K_IP_RX_RATE }${P9K_IP_TX_RATE:+%215F⇡$P9K_IP_TX_RATE }%38F$P9K_IP_IP'
+  typeset -g POWERLEVEL9K_IP_CONTENT_EXPANSION='$P9K_IP_INTERFACE %38F$P9K_IP_IP'
   # Show information for the first network interface whose name matches this regular expression.
   # Run `ifconfig` or `ip -4 a show` to see the names of all network interfaces.
   typeset -g POWERLEVEL9K_IP_INTERFACE='[ew].*'
@@ -1642,7 +1643,7 @@
   #   - always:   Trim down prompt when accepting a command line.
   #   - same-dir: Trim down prompt when accepting a command line unless this is the first command
   #               typed after changing current working directory.
-  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=always
+  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=same-dir
 
   # Instant prompt mode.
   #
