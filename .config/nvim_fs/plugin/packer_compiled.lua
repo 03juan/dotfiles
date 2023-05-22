@@ -253,6 +253,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/juan/.local/share/nvim_fs/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/03juan/telescope.nvim"
+  },
+  ["which-key.nvim"] = {
+    loaded = true,
+    path = "/home/juan/.local/share/nvim_fs/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 

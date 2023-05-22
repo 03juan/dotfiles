@@ -126,6 +126,8 @@ return packer.startup(function(use)
 
   use "ahmedkhalf/project.nvim"
 
+  use "folke/which-key.nvim"
+
   -- Automoatically set up configuration after cloning packer.nvim
   -- should be the last command after all plugins
   if PACKER_BOOTSTRAP then
