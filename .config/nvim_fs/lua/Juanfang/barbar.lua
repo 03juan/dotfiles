@@ -9,10 +9,14 @@ barbar.setup {
   focus_on_close = "previous",
   hide = { extensions = true },
   icons = {
+    filetype = {
+      custom_colors = false,
+      enabled = true,
+    },
     gitsigns = {
-      added = {enabled = true, icon = '+'},
-      changed = {enabled = true, icon = '~'},
-      deleted = {enabled = true, icon = '-'},
+      added = {enabled = true },
+      changed = {enabled = true },
+      deleted = {enabled = true },
     },
     pinned = {button = '車', filename = true},
   },

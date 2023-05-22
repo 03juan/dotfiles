@@ -102,13 +102,8 @@ return packer.startup(function(use)
 
   use "lewis6991/gitsigns.nvim"
 
-  use {
-    "romgrk/barbar.nvim",
-    requires = {
-      "lewis6991/gitsigns.nvim",
-      "nvim-tree/nvim-web-devicons"
-    }
-  }
+  use "nvim-tree/nvim-web-devicons"
+  use "romgrk/barbar.nvim"
 
   -- Automoatically set up configuration after cloning packer.nvim
   -- should be the last command after all plugins
