@@ -128,6 +128,8 @@ return packer.startup(function(use)
 
   use "folke/which-key.nvim"
 
+  use "lukas-reineke/indent-blankline.nvim"
+
   -- Automoatically set up configuration after cloning packer.nvim
   -- should be the last command after all plugins
   if PACKER_BOOTSTRAP then
