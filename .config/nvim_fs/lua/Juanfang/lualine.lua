@@ -3,7 +3,9 @@ if not status_ok then
   return
 end
 
-local hide_in_width = function()
+lualine.setup()
+
+--[[ local hide_in_width = function()
   return vim.fn.winwidth(0) > 80
 end
 
@@ -89,4 +91,4 @@ lualine.setup({
   },
   tabline = {},
   extensions = {},
-})
+}) ]]
