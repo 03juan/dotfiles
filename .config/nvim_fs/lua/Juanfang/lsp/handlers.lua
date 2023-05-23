@@ -1,9 +1,7 @@
 local M = {}
 
 local cmp_status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not cmp_status_ok then
-  return
-end
+if not cmp_status_ok then return end
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -18,7 +16,7 @@ M.setup = function()
   }
 
   for _, sign in ipairs(signs) do
-    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = ""})
+    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
   end
 
   local config = {
@@ -88,13 +86,10 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts) -- maybe disable?
   keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
   keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-
 end
 
 M.on_attach = function(client, bufnr)
-  if client.name == "tsserver" then
-    client.server_capabilities.document_formatting = false
-  end
+  if client.name == "tsserver" then client.server_capabilities.document_formatting = false end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
 end
