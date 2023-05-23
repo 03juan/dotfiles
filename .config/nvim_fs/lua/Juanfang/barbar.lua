@@ -7,6 +7,7 @@ end
 
 barbar.setup {
   focus_on_close = "previous",
+  highlight_visible = false,
   hide = { extensions = true },
   icons = {
     filetype = {
@@ -19,6 +20,7 @@ barbar.setup {
       deleted = {enabled = true },
     },
     pinned = {button = '車', filename = true},
+    current = { buffer_number = true },
   },
   sidebar_filetypes = {
     ['neo-tree'] = { event = 'BufWipeout' },
