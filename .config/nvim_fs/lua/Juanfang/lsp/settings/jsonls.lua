@@ -29,9 +29,17 @@ local schemas = {
     },
     url = "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json",
   },
+  {
+    description = "eslint configuration file",
+    fileMatch = {
+      ".eslintrc.json"
+    },
+    url = "https://json.schemastore.org/eslintrc.json"
+  }
 }
 
 local opts = {
+  cmd = { "vscode-json-language-server", "--stdio" },
   settings = {
     json = {
       schemas = schemas,

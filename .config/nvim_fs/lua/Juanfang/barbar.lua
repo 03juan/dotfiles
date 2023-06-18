@@ -6,6 +6,7 @@ if not status_ok then
 end
 
 barbar.setup {
+  animation = true,
   focus_on_close = "previous",
   highlight_visible = false,
   hide = { extensions = true },

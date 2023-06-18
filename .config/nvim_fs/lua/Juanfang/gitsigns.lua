@@ -2,6 +2,12 @@ local status_ok, gitsigns = pcall(require, "gitsigns")
 if not status_ok then return end
 
 gitsigns.setup({
+  worktrees = {
+    {
+      dotdir = vim.env.HOME .. "/.dotfiles",
+      home = vim.env.HOME,
+    },
+  },
   signs = {
     add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
     change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
@@ -9,15 +15,15 @@ gitsigns.setup({
     topdelete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
     changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
   },
-  signcolumn = true,
-  numhl = false,
+  signcolumn = false,
+  numhl = true,
   linehl = false,
-  word_diff = false,
+  word_diff = true,
   watch_gitdir = {
     itnerval = 1000,
     follow_files = true,
   },
-  attach_to_untracked = true,
+  attach_to_untracked = false,
   current_line_blame = false,
   current_line_blame_opts = {
     virt_text = true,

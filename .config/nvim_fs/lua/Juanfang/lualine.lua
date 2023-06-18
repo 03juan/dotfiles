@@ -1,9 +1,17 @@
 local status_ok, lualine = pcall(require, "lualine")
-if not status_ok then
-  return
-end
+if not status_ok then return end
 
-lualine.setup()
+lualine.setup({
+  options = {
+    disabled_filetypes = { "neo-tree" },
+    theme = "catppuccin-mocha",
+  },
+  sections = {
+    lualine_c= {
+      { "filename", path = 1 },
+    },
+  },
+})
 
 --[[ local hide_in_width = function()
   return vim.fn.winwidth(0) > 80

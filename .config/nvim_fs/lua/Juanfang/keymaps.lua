@@ -19,6 +19,7 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- disabled in favour of keymap in neo-tree.lua
 
 keymap("n", "<Esc>", ":nohlsearch<CR>", opts)
+keymap("n", "<leader>qs", ":source %<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -4<CR>", opts)
@@ -32,10 +33,27 @@ keymap("n", "<A-h>", ":bprevious<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", opts)
-keymap("n", "<leader>fd", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown())<CR>", opts)
-keymap("n", "<leader>/", "<cmd>Telescope live_grep<CR>", opts)
+keymap(
+  "n",
+  "<leader>fd",
+  "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown())<CR>",
+  opts
+)
+keymap(
+  "n",
+  "<leader>/",
+  "<cmd>lua require('telescope.builtin').live_grep({ search_dirs = vim.lsp.buf.list_workspace_folders() })<CR>",
+  opts
+)
 keymap("n", "<leader>?", "<cmd>Telescope buffers<CR>", opts)
 keymap("n", "<leader>p", "<cmd>Telescope projects<CR>", opts)
+-- Map a shortcut to open the picker.
+keymap(
+  "n",
+  "<Leader><Leader>",
+  [[<cmd>lua require('telescope').extensions.recent_files.pick()<CR>]],
+  { noremap = true, silent = true }
+)
 
 -- neo-tree
 keymap("n", "<Bslash>", ":Neotree reveal<CR>", opts)

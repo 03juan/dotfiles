@@ -1,10 +1,8 @@
 local status_ok, configs = pcall(require, "nvim-treesitter.configs")
-if not status_ok then
-  return
-end
+if not status_ok then return end
 
 configs.setup({
-  ensure_installed = "",
+  ensure_installed = { "elixir", "heex", "eex", "lua", "yaml", "bash" },
   sync_install = false,
   ignore_install = { "" },
   auto_install = true,
@@ -29,16 +27,12 @@ configs.setup({
   context_commentstring = {
     enable = true,
     enable_autocmd = false,
-  }
+  },
 })
 
 local context_staus_ok, context = pcall(require, "treesitter-context")
-if not context_staus_ok then
-  return
-end
+if not context_staus_ok then return end
 
 context.setup()
 
-vim.keymap.set("n", "[c", function()
-  context.go_to_context()
-end, { silent = true })
+vim.keymap.set("n", "[c", function() context.go_to_context() end, { silent = true })

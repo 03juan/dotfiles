@@ -157,10 +157,10 @@ neo_tree.setup({
     filtered_items = {
       visible = false, -- when true, they will just be displayed differently than normal items
       hide_dotfiles = false,
-      hide_gitignored = true,
+      hide_gitignored = false,
       hide_hidden = true, -- only works on Windows for hidden files/directories
       hide_by_name = {
-        "node_modules"
+        -- "node_modules"
       },
       hide_by_pattern = { -- uses glob style patterns
         --"*.meta",
@@ -177,12 +177,12 @@ neo_tree.setup({
         --".null-ls_*",
       },
     },
-    follow_current_file = false, -- This will find and focus the file in the active buffer every
+    follow_current_file = true, -- This will find and focus the file in the active buffer every
                                  -- time the current file is changed while the tree is open.
-    group_empty_dirs = false, -- when true, empty folders will be grouped together
-    hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
+    group_empty_dirs = true, -- when true, empty folders will be grouped together
+    hijack_netrw_behavior = --[[ "open_default", -- netrw disabled, opening a directory opens neo-tree ]]
                                             -- in whatever position is specified in window.position
-                          -- "open_current",  -- netrw disabled, opening a directory opens within the
+                          "open_current",  -- netrw disabled, opening a directory opens within the
                                             -- window like netrw would, regardless of window.position
                           -- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
     use_libuv_file_watcher = true, -- this will use the os level file watchers to detect changes
@@ -239,5 +239,3 @@ neo_tree.setup({
     }
   }
   })
-
--- vim.cmd([[nnoremap \ :Neotree reveal<cr>]])

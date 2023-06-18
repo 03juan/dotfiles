@@ -63,4 +63,6 @@ vim.g.clipboard = {
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
-vim.wo.foldcolumn = "5"
+vim.wo.foldcolumn = "0"
+
+vim.cmd [[set colorcolumn=120]]

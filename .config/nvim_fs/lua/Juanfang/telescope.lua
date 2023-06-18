@@ -83,6 +83,9 @@ telescope.setup({
       filetypes = { "png", "webp", "jpg", "jpeg" },
       find_cmd = "rg",
     },
+    recent_files = {
+      ignore_patterns =  { "/tmp/", "COMMIT_EDITMSG"}
+    }
   },
 })
 
@@ -90,3 +93,4 @@ telescope.load_extension("fzf")
 telescope.load_extension("media_files")
 telescope.load_extension("projects")
 telescope.load_extension("gh")
+telescope.load_extension("recent_files")

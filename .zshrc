@@ -1,10 +1,8 @@
-#----------------------------
-# ssh-agent
-#----------------------------
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+#---------------------------- ssh-agent ---------------------------- 
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc. 
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -134,6 +132,11 @@ fpath=(${ASDF_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 
+# from https://github.com/halcyon/asdf-java#java_home
+if [[ -f ~/.asdf/plugins/java/set-java-home.zsh ]]; then
+  . ~/.asdf/plugins/java/set-java-home.zsh
+fi
+
 #----------------------------
 # plugins
 #----------------------------
@@ -174,7 +177,8 @@ plugin-load $plugins
 export IP=$(hostname -I | awk '{print $1}')
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
-export PATH="${PATH}:${HOME}/bin"
+export PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin:/home/juan/.m2/wrapper/dists/apache-maven-3.9.1-bin/320285b4/apache-maven-3.9.1/bin"
+
 export TIME_STYLE="long-iso"
 
 # Erlang and Elixir
@@ -184,3 +188,6 @@ export KERL_INSTALL_HTMLDOCS=no
 export KERL_INSTALL_MANPAGES=no
 
 export NVIM_APPNAME=nvim_fs
+# export TERM="tmux-256color"
+
+
