@@ -118,6 +118,7 @@ return packer.startup(function(use)
   })
 
   use("smartpde/telescope-recent-files")
+  use("kdheepak/lazygit.nvim")
 
   use({
     "nvim-treesitter/nvim-treesitter",

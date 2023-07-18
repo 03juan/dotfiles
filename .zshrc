@@ -70,8 +70,6 @@ alias dot="dotfiles"
 
 #------------------------------
 # ShellFuncs
-#------------------------------
-# -- coloured manuals
 man() {
   env \
     LESS_TERMCAP_mb=$(printf "\e[1;31m") \
@@ -171,6 +169,9 @@ function plugin-load {
 plugins=(greymd/docker-zsh-completion bobsoppe/zsh-ssh-agent)
 plugin-load $plugins
 
+# for docker compose completion
+fpath=(~/.zsh/completion $fpath)
+
 #----------------------------
 # environment variables
 #----------------------------
@@ -178,6 +179,7 @@ export IP=$(hostname -I | awk '{print $1}')
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
 export PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin:/home/juan/.m2/wrapper/dists/apache-maven-3.9.1-bin/320285b4/apache-maven-3.9.1/bin"
+export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 
 export TIME_STYLE="long-iso"
 
@@ -190,4 +192,8 @@ export KERL_INSTALL_MANPAGES=no
 export NVIM_APPNAME=nvim_fs
 # export TERM="tmux-256color"
 
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
 
+eval "$(zoxide init zsh)"

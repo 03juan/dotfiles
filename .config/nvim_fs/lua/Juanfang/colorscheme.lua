@@ -55,6 +55,7 @@ local ok, catppuccin = pcall(require, "catppuccin")
 if not ok then return end
 
 catppuccin.setup({
+  flavor = "latte",
   dim_inactive = {
     enabled = true,
     shade = "dark",
@@ -66,7 +67,7 @@ catppuccin.setup({
     which_key = true,
   }
 })
-local colorscheme = "catppuccin-mocha"
+local colorscheme = "catppuccin-latte"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then

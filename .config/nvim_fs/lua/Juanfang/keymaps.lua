@@ -20,6 +20,7 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 
 keymap("n", "<Esc>", ":nohlsearch<CR>", opts)
 keymap("n", "<leader>qs", ":source %<CR>", opts)
+keymap("n", "<leader>w", ":w %<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -4<CR>", opts)

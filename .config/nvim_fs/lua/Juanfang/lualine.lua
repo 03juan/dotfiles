@@ -4,7 +4,7 @@ if not status_ok then return end
 lualine.setup({
   options = {
     disabled_filetypes = { "neo-tree" },
-    theme = "catppuccin-mocha",
+    theme = "catppuccin",
   },
   sections = {
     lualine_c= {
