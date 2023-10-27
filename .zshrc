@@ -178,7 +178,7 @@ fpath=(~/.zsh/completion $fpath)
 export IP=$(hostname -I | awk '{print $1}')
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
-export PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin:/home/juan/.m2/wrapper/dists/apache-maven-3.9.1-bin/320285b4/apache-maven-3.9.1/bin"
+export PATH="$PATH:$HOME/bin:$HOME/.local/bin:/home/juan/.m2/wrapper/dists/apache-maven-3.9.1-bin/320285b4/apache-maven-3.9.1/bin"
 export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 
 export TIME_STYLE="long-iso"
@@ -197,3 +197,12 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
 eval "$(zoxide init zsh)"
+export FLYCTL_INSTALL="/home/juan/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+source $HOME/.zsh-fly-comp
+
+# from https://stackoverflow.com/questions/70684536/zsh-shell-on-ubuntu-wsl-cant-find-node-npm-nvm-or-any-other-installations-aft
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_comp$
